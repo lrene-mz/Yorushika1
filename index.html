@@ -5,38 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>鸣筝的网站</title>
     <style>
-        /* 横屏提示样式 */
-        .landscape-prompt {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #f0f7ff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            font-family: "楷体", serif;
-            color: #ff6b8b;
-            text-align: center;
-            padding: 20px;
-        }
-        .landscape-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-            animation: rotate 3s infinite ease-in-out;
-        }
-        .landscape-text {
-            font-size: 24px;
-            max-width: 300px;
-        }
-        @keyframes rotate {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(90deg); }
-        }
-
         /* 轮播容器：承载三层卡片 */
         .carousel-container {
             position: fixed;
@@ -237,16 +205,11 @@
             transform: scaleX(1.1);
         }
 
-        /* 手机横屏适配 */
-        @media screen and (max-width: 768px) and (orientation: portrait) {
-            body { overflow: hidden; }
-            .main-content { display: none; }
-            .landscape-prompt { display: flex; }
-        }
-        @media screen and (max-width: 768px) and (orientation: landscape) {
-            .carousel-container { max-width: 700px; height: 300px; }
+        /* 移动端适配 */
+        @media screen and (max-width: 768px) {
+            .carousel-container { max-width: 90%; height: 350px; }
             .carousel-card { 
-                font-size: 20px; 
+                font-size: 18px; 
                 padding: 20px;
                 min-width: 250px; 
                 gap: 15px;
@@ -256,16 +219,11 @@
             .text-content { font-size: 20px; }
             .card-prev { transform: translate(-50%, calc(-50% - 120px)) scale(0.85); }
             .card-next { transform: translate(-50%, calc(-50% + 120px)) scale(0.85); }
-            .carousel-controls { right: 20px; gap: 12px; }
+            .carousel-controls { right: 15px; gap: 12px; }
             .control-btn { width: 40px; height: 40px; font-size: 18px; }
-            .carousel-indicators { left: 20px; gap: 8px; }
+            .carousel-indicators { left: 15px; gap: 8px; }
             .indicator { width: 10px; height: 10px; }
             .indicator.active { height: 20px; }
-        }
-
-        /* 桌面端样式 */
-        @media screen and (min-width: 769px) {
-            .landscape-prompt { display: none; }
         }
 
         body {
@@ -327,12 +285,6 @@
     </style>
 </head>
 <body>
-    <!-- 横屏提示 -->
-    <div class="landscape-prompt">
-        <div class="landscape-icon">📱</div>
-        <div class="landscape-text">请将手机横屏查看，体验更佳哦～</div>
-    </div>
-
     <!-- 主要内容容器 -->
     <div class="main-content">
         <!-- 背景音乐 -->
@@ -411,7 +363,7 @@
                 color: "orange" 
             },
             { 
-                avatar: "/Yorushika1/e.jpg", 
+                avatar: "/Yorushika1/q.jpg", 
                 username: "Elma",
                 text: "多喝花青绿", 
                 color: "paleturquoise" 
@@ -529,20 +481,7 @@
                 username: "左右盲",
                 text: "愿我们在每一个夏日的尽头能如初春一般相遇", 
                 color: "lavender" 
-            },
-            { 
-                avatar: "/Yorushika1/w.jpg", 
-                username: "Walknfield",
-                text: "如果没有伤痛，我大概也不会听夜鹿", 
-                color: "darkviolet" 
-            },
-	    { 
-                avatar: "/Yorushika1/e.jpg", 
-                username: "Elma",
-                text: "遇到了你们八月的我不再是孤身一人骑自行车", 
-                color: "paleturquoise" 
-            },
-
+            }
         ];
 
         // 全局变量
